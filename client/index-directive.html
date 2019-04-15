@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Add this to <head> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app" v-bind:class="{ 'splitBackground': kelas.isA, 'nosplit': kelas.isB }">
+    <div class="container" id="nap">
+      <div class="d-flex">
+        <div class="mr-auto p-2">logo</div>
+        <div class="p-2 dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="swapHomepage">
+            Home
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">About</a>
+            <a class="dropdown-item" href="#">Contact us</a>
+          </div>
+        </div>
+        <div class="p-2"><button class="btn btn-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-if="button.writeHasToken">
+            write article
+          </button></div>
+        <div class="p-2"><button class="btn btn-info" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="swapLogin">
+            Login
+          </button></div>
+        <div class="p-2"><button class="btn btn-info" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @click="swapRegister">
+            Register
+          </button></div>
+        <div class="p-2"></div>
+      </div>
+    </div>
+
+    <div v-if="page.homepage">
+      <div class="container ">
+        <div class="d-flex align-content-center flex-wrap">
+          <div class="p-2" id="move"><img src="http://fabrikbrands.com/wp-content/uploads/Writing-Marketing-Articles-5.jpg" height="220" /></div>
+          <div class="p-2"><img src="http://fabrikbrands.com/wp-content/uploads/Writing-Marketing-Articles-2.jpg" height="220" /></div>
+          <div class="p-2" id="move2"><img src="http://fabrikbrands.com/wp-content/uploads/Writing-Marketing-Articles-1.jpg" height="220" /></div>
+          <div class="align-self-end" id="boxcaption">
+            <h1 id="caption"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur obcaecati totam qui soluta minima itaque quae sint eum provident laborum numquam, animi libero.</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" v-if="page.loader">
+        <div class="row">
+          <div class="col-sm-4 offset-5">
+            <img src="./image/loader.gif" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="container" id="articles" v-if="page.articlePage">
+        <div class="d-flex flex-wrap mx-2">
+          <div class="p-2 mx-2" v-for="(article, i) in articles" :key="i">
+            <h2> {{article.title}}</h2>
+            <p> {{ article.content.split(" ").slice(0, 70).join(" ")}}..........</p>
+            <div class="d-flex p-10">
+              <div class="mr-auto p-2"> <button type="butto" class="btn btn-info"> read more</button></div>
+              <div class="p-2">
+                <p class="small" v-if="!article.author"> anonymous author</p>
+                <p class="small" v-else> {{ article.author.name }}, {{ article.author.age }} years old <br /> {{ new Date(article.created_at).toString().split(" ").slice(0, 4).join(" ") }}</p>
+
+              </div>
+              <!-- <div class="p-2">Flex item</div> -->
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container" v-if="page.register">
+      <div class="row">
+        <div class="col-sm-4 offset-4">
+          <form @submit.prevent="goRegister">
+            <div class="form-group">
+              <label for="username">username</label>
+              <input type="text" class="form-control" id="usernameRegister" aria-describedby="emailHelp" placeholder="Enter username" v-model.trim="form.username" required>
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="emailRegister" aria-describedby="emailHelp" placeholder="Enter email" v-model.trim="form.email" required>
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="passwordRegister" placeholder="Password" v-model.trim="form.password" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="nameRegister" placeholder="Enter name" v-model="form.name" required>
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input type="number" class="form-control" id="ageRegister" v-model="form.age" required>
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" v-if="page.thislogin">
+      <div class="row">
+        <div class="col-sm-4 offset-4">
+          <form @submit.prevent="goLogin">
+            <div class="form-group">
+              <label for="usernamelogin">Username or Email</label>
+              <input type="text" class="form-control" id="usernameLogin" aria-describedby="emailHelp" placeholder="Enter username or email" v-model.trim="loginform.username" required>
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label for="passwordlogin">Password</label>
+              <input type="password" class="form-control" id="passwordLogin" placeholder="Password" v-model.trim="loginform.password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container" v-if="page.dashboard">
+      <div class="container" v-if="page.loader2">
+        <div class="row">
+          <div class="col-sm-4 offset-5">
+            <img src="./image/loader.gif" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="container" v-if="page.profile">
+        <div class="d-flex justify-content-center flex-row">
+          <div class="d-flex justify-content-center">
+            <div class="p-2"> <img class="col-md-4 col-sm-4 col-xs-4" :src="author.articles.picture" alt=""></div>
+            <div class="p-2">
+              <h3> {{ author.articles.name}}</h3> <small class="form-text text-muted">{{ author.articles.age }} years old</small>
+            </div>
+
+
+          </div>
+
+          <!-- <div v-for="(article, i) in author.articles.articles" :key="i">
+
+        </div> -->
+        </div>
+        <!-- Search form -->
+        <div class="d-flex flex-wrap mx-2">
+          <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </div>
+
+        <div class="container" id="articles" v-if="page.articlePage">
+          <div class="d-flex flex-wrap mx-2">
+            <div class="p-2 mx-2" v-for="(article, i) in author.articles.articles" :key="i">
+              <h2> {{article.title}}</h2>
+              <p> {{ article.content.split(" ").slice(0, 60).join(" ")}}..........</p>
+              <div class="d-flex">
+                <div class="mr-auto p-2"> <button type="button" class="btn btn-info"> read more</button></div>
+                    <div class="mr-auto p-2"> <button type="button" class="btn btn-info"> edit </button></div>
+                    <div class="mr-auto p-2"> <button type="button" class="btn btn-info" @click="deleteArticle($event, i)"> delete </button></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <!-- Footer -->
+      <footer class="page-footer font-small blue mt-auto py-3">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">¬© 2018 Copyright:
+          <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        </div>
+        <!-- Copyright -->
+
+      </footer>
+      <!-- Footer -->
+
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./js/main.js" charset="utf-8"></script>
+</body>
+
+</html>

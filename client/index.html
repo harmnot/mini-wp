@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-signin-client_id" content="2731257843-grg8ke9jd1214ut22tglmgvrej62pijj.apps.googleusercontent.com">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../vue-wysiwyg/vueWysiwyg.css">
+
+  <!-- Alert-tify  -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/css/alertify.min.css" />
+  <!-- google -->
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>Mini-WP</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <navbar :isloggin="areTheyLogin" @page-home="toHomePage" @page-logout="toLogout" @page-login="toLogin" @page-register="toRegister" @page-writearticle="addArticle" @page-dashboard-page="swapDashboard" :googlesigin="onSigIn" :failedgoogle="googleFailed"></navbar>
+
+    <template id="" v-if="page.homepage">
+      <div class="container ">
+        <div class="d-flex align-content-center flex-wrap">
+          <div class="p-2" id="move"><img src="http://fabrikbrands.com/wp-content/uploads/Writing-Marketing-Articles-5.jpg" height="220" /></div>
+          <div class="p-2"><img src="http://fabrikbrands.com/wp-content/uploads/Writing-Marketing-Articles-2.jpg" height="220" /></div>
+          <div class="p-2" id="move2"><img src="http://fabrikbrands.com/wp-content/uploads/Writing-Marketing-Articles-1.jpg" height="220" /></div>
+          <div class="align-self-end" id="boxcaption">
+            <h1 id="caption"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur obcaecati totam qui soluta minima itaque quae sint eum provident laborum numquam, animi libero.</h1>
+          </div>
+        </div>
+      </div>
+      <home-page :articles="somearticles" :loader="loaders" @read-more="readMore"> </home-page>
+    </template>
+
+    <register @do-register="handleRegister" :form="forms" v-if="page.register"> </register>
+    <login @dologin="handleLogin" :loginform="loginforms" v-if="page.login"></login>
+    <!-- <dashboard :dashboard="dashboards" :author="author"></dashboard> -->
+    <dashboard v-if="page.dashboard" @readmore="readmoreDashboard" @delete-button="handleDelete" @editable="editContent">
+      <form @submit.prevent="uploadthispic">
+        <div class="form-group p-3">
+        <label for="exampleFormControlFile1">Change your profile</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" ref="inputfile" @change="previewimage" > <br />
+          <span v-if="tryingUpload"> trying upload......</span>
+          <input class="p-1 m-6" type="submit" v-else>
+        </div>
+      </form>
+    </dashboard>
+
+    <div class="container" v-if="page.writearticle">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="text" class="form-control" aria-describedby="title" placeholder="Enter title" v-model="article.title">
+      </div>
+      <wysiwyg  :html="article.edit" :placeholder="article.placeholder" ref="content" v-model="article.content">
+      </wysiwyg> <br />
+      <button type="button" class="btn btn-primary" @click="handleAddArticle" v-if="article.addArticle">Add</button>
+      <button type="button" class="btn btn-primary" @click="handleUpdateArticle" v-else>Update</button>
+    </div>
+
+    <!-- end of app -->
+  </div>
+  <!-- end of app -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- axios -->
+  <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--  -->
+
+  <!-- alert -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.2/build/alertify.min.js"></script>
+  <!--  -->
+
+  <!-- bootstrap -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!--  -->
+
+
+
+
+  <!-- component -->
+  <script src="/component/home-page.js" charset="utf-8"></script>
+  <script src="/component/register.js" charset="utf-8"></script>
+  <script src="/component/login.js" charset="utf-8"></script>
+  <script src="/component/navbar.js" charset="utf-8"></script>
+  <script src="/component/dashboard.js" charset="utf-8"></script>
+  <script src="/component/vueWysiwyg.js" charset="utf-8"></script>
+
+  <!--  -->
+
+  <!-- new Vue instance -->
+  <script src="/js/main.js"></script>
+
+
+</body>
+
+</html>

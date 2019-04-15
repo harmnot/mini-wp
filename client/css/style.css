@@ -1,0 +1,39 @@
+@import url("https://rsms.me/inter/inter.css");
+* {
+  margin: 0;
+  padding: 0;
+}
+.splitBackground {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  background: linear-gradient(to bottom, #cdcfdd, #cdcfdd 50%, #fbfbfb 50%, #fbfbfb);
+}
+.nosplit {
+  background-image: #ffc0cb;
+}
+#colornav {
+  color: #ffc0cb;
+}
+#nap {
+  margin-bottom: 50px;
+}
+#caption {
+  font-size: 20px;
+}
+#boxcaption {
+  margin: 20px;
+}
+#move {
+  margin-top: 85px;
+}
+#move2 {
+  margin-top: 85px;
+}
+footer {
+  background: #ece9e6; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fff, #ece9e6); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fff, #ece9e6) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+}
+#articles {
+  background: #f7f6f5;
+}

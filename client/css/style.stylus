@@ -1,0 +1,83 @@
+@import url('https://rsms.me/inter/inter.css');
+
+// variable
+my-font='Karla', sans-serif
+interui= 'Inter', sans-serif;
+fontsize = 17px
+articlesize = 20px
+split-color = linear-gradient(to bottom, #f8cdcd 0%, #f8cdcd 50%, #E0EAFC 50%, #CFDEF3 100%)
+
+// gradient
+mixpink()
+  background #d9a7c7  /* fallback for old browsers */
+  background -webkit-linear-gradient(to right, #fffcdc, #d9a7c7)  /* Chrome 10-25, Safari 5.1-6 */
+  background linear-gradient(to right, #fffcdc, #d9a7c7) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+mixgrey()
+  background #E0EAFC;  /* fallback for old browsers */
+  background -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC)  /* Chrome 10-25, Safari 5.1-6 */
+  background linear-gradient(to right, #CFDEF3, #E0EAFC) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+center()
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+
+centerAbsute()
+    left 50%
+    top 50%
+    position absolute
+    transform translate(-50%, -50%)
+
+*
+  margin 0
+  padding 0
+
+.splitBackground
+  font-family interui
+  font-size fontsize
+  background linear-gradient(to bottom, #CDCFDD,#CDCFDD 50%, #FBFBFB 50%, #FBFBFB)
+
+.nosplit
+  background-image pink
+
+  // body {
+  //   	background-image: linear-gradient(to bottom, orange, orange 50%, green 50%, green);
+	//     background-size: cover;
+  //   	background-repeat: no-repeat;
+	// }
+  //
+  //   html, body {
+  //       margin: 0;
+  //       height: 100%;
+  //   }
+
+#colornav
+  color pink
+
+#nap
+  margin-bottom: 50px;
+
+#caption
+  font-size articlesize
+#boxcaption
+  margin 20px
+
+#move
+  margin-top 85px
+#move2
+  margin-top: 85px
+
+footer
+ background #ECE9E6; /* fallback for old browsers */
+ background -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6); /* Chrome 10-25, Safari 5.1-6 */
+ background linear-gradient(to right, #FFFFFF, #ECE9E6) /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+#articles
+ background: rgb(247, 246, 245)
+
+
+
+
+
+

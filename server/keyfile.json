@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "round-logic-237311",
+  "private_key_id": "21cfcef906a532fa2aa83f88516c996e3685ddeb",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdr9FL6kCfA3DA\nswKX6AjEa6wC+IfNGYX3cQjxUJmWbqIRqTAB/3IS35JfKbEqd5O/zejA5zt8H5fj\nMdczxRKN8nTuRJkh0LxR2KDgfZAg4Pj1Hzg0PyWE5qlp7Wa2NrtAMinMFQeJFqt0\ntRJLeynYryp11hybTeNWMcBWqoegtC6xBVD1j5qhGsbMoT6FyMTk5gZ05YHWC5cW\nXB6KIazvaMo+CjbTGrghfwa0aM7m1vWdMWIgnRbP1pknGz2aBS+DdxEQnPJeoY8e\ndnVLPl5Rc05j8Evy6/Qruox4FxKgb3DmNLsiith1NoSMkGGvcnWhN/ldqV40wuGM\nXB5/SN21AgMBAAECggEACcqtuuKpEHFoqmqjRgFjA/wcp72SRJE/FqUGqrd4JhV+\nIQ3KEkxauM3Nxh+DEHGcSOGK1b8Lcah46HiDQMQjeWbdeHXliBTxEL2x4GbOUPWv\nYpya7fGgN+Rmj5JDRHGEcgF7biBogfct/payNAzfRcTmJIA/HAIQ6cdim8RwnMZi\njdLj7OyyToERZoppVZjrKQhpjjqKjtunjU21LSBWC5mexWju+sPJMQGlS8DN4vYr\nlhhwjNEOwxNgbreh1z0pGwEKzSnTnzhfTR9894jwjCkntY1BIb78nUgWS8qv9BZX\nHf4QZQOwu29BYUVm/cN3hlNUzpvTeWQptkKRymFwiQKBgQDVJCQwvCgSguKDFXnH\nHlcPYJp84VhY4sr/Tt20GJr8PS5048t0u36wmVHZCvqEKzqlt2yhK1MbWSCnL8D0\nW77qQDVdgA9QSYXmXLoT+BRB+4MIBm3N7urrXsJpFalRKeC5FrNvldys0xHkCwlW\nE+G/ug0ATher9rUErnRxt6NjuQKBgQC9ZQ2YUqdEUGUcnjKadS2ruj4cqXkjTjYJ\nH0yQdZ092aIUCJX+ju91+zBXYULeIrmmPBAlxk6wpQw69l5K7clcL83jdwQWbHFH\nG0DhUMerJssx5GXHrEZKttWz9GRYq9CdVnk8DH/YiZ2p+hLjoZNNkju2lBkLC9zM\n4L0vJlt/3QKBgBLh5srigHJTYhnW1zkKuQ/FsSoLFLabMPy5Ue7YlzJtgSYd4DJx\nQeIHUzb1QAhhhAqWW2tT2UL8/GWTV3bOgfVixteHttOYD+K+qEWIntLRo2QcnbG2\nzt0XQgXpQ1zLZvs+xZrHHgu5j0YyrBsSG9fOdcRnJrW3X4YQpoREjpcRAoGAYyEH\nMpjgT5M8uPPcTJfUZbO/WsUhUGdZRQEK0/mbaYoFmTK9P1WU5E2rCbEwjI/kV6vM\nT9kxyqc4dYwJ4nH/GK80tj/O9eWgjLUpCkV7nItbgyumUhJLYEO+KshZ1Udok1F1\ndwaby7yLtzHavSYOsWU+t9tgGDYHRXzDyG/tKEkCgYEAkkb6wFXiRA9lxjdWMYoo\nK36WoHFdtbXqFyTF6u4Wr10E2uS5lrgnUKowvqSQTHKqRavAzryPsLqdd07fispq\ngzy0TKVXlC+xq5GJSrKQIBk3YYcYyN6C9wHJS6KM7rQgpKss5duRlPgs6zA8fa1V\nMEyNegBVBDXJCwO/GgXZmGI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "another-bucket@round-logic-237311.iam.gserviceaccount.com",
+  "client_id": "114699255400465224019",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/another-bucket%40round-logic-237311.iam.gserviceaccount.com"
+}

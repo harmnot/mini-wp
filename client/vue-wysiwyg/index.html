@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>vue-wysiwyg</title>
+    <link rel="stylesheet" href="/vueWysiwyg.css">
+  </head>
+  <body>
+    <div id="app">
+      <wysiwyg v-model="text"></wysiwyg>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="/vueWysiwyg.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        components: {
+          wysiwyg: vueWysiwyg.default.component,
+        },
+        data() {
+          return {
+            text: '',
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
